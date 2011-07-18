@@ -1,0 +1,44 @@
+body {
+  font-size: 12px; 
+}
+
+#slide-preview {
+  width: 800px;
+  height: 300px;
+}
+
+/*.slide {
+  display: none; 
+}*/
+
+#slide-preview h1,
+#slide-preview h3,
+#slide-preview p {
+  margin: 0; 
+}
+
+#slide-preview .slide {
+  display: inline-block;
+  width: 45%;
+  overflow: hidden;
+  height: 300px;
+}
+
+.slide .desc {
+  display: inline-block; 
+  width: 50%;
+  vertical-align: top;
+}
+
+.slide .desc p {
+  border-top: 1px solid #ddd; 
+}
+
+.slide .img {
+  position: relative;
+  overflow: hidden;
+}
+.slide img {
+  height: 150px;
+  position: absolute;
+}

@@ -1,0 +1,56 @@
+<! DOCTYPE html >
+<html>
+  <head>
+    <title>Basic Usage</title>
+    <style src="../styles/basic.css"></style>
+    <link rel="stylesheet" type="text/css" href="../styles/basic.css" />
+
+    <script src="../vendor/jquery-1.6.2.min.js"></script>
+    <script src="../vendor/underscore-min.js"></script>
+    <script src="../jquery.siteSlider.js"></script>
+
+
+  </head>
+<h1>Example 1</h1>
+
+<div id="slide-preview">
+  <div class="slide">
+    <span class="desc">
+      <h3>Testing header</h3>
+      <p>This is a test text. Gimme something to do with these tags...</p>
+    </span>
+    <span class="img">
+      <img src="slide1.png" alt="What?">
+    </span>
+  </div>
+  <div class="slide">
+    <span class="desc">
+      <h3>Another check 2</h3>
+      <p>This is a test text. Gimme something to do with these tags...</p>
+    </span>
+    <span class="img">
+      <img src="slide2.png" alt="Another">
+    </span>
+  </div>
+
+  <div class="slide">
+    <span class="desc">
+      <h3>Another check 3</h3>
+      <p>This is a test text. Gimme something to do with these tags...</p>
+    </span>
+    <span class="img">
+      <img src="slide2.png" alt="Another">
+    </span>
+  </div>
+
+  <div id="paginate"></div>
+</div>
+
+<script>
+  $(function() {
+    $('#slide-preview').siteSlider();
+  });
+</script>
+
+</body>
+</html>
