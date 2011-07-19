@@ -13,42 +13,56 @@
   </head>
 <h1>Example 1</h1>
 
-<div id="slide-preview">
-  <div class="slide">
-    <span class="desc">
-      <h3>Testing header</h3>
-      <p>This is a test text. Gimme something to do with these tags...</p>
-    </span>
-    <span class="img">
-      <img src="slide1.png" alt="What?">
-    </span>
-  </div>
-  <div class="slide">
-    <span class="desc">
-      <h3>Another check 2</h3>
-      <p>This is a test text. Gimme something to do with these tags...</p>
-    </span>
-    <span class="img">
-      <img src="slide2.png" alt="Another">
-    </span>
-  </div>
+<div id="site-preview">
+  <a href="#prev" id="prev" class="nav">Prev</a>
+  <a href="#next" id="next" class="nav">Next</a>
+  <div id="slide-viewer">
+    <div id="slides">
+      <div class="slide">
+        <span class="desc">
+          <h3>Testing header</h3>
+          <p>This is a test text. Gimme something to do with these tags...</p>
+        </span>
+        <span class="img">
+          <img src="slide1.png" alt="What?">
+        </span>
+      </div>
+      <div class="slide">
+        <span class="desc">
+          <h3>Another check 2</h3>
+          <p>This is a test text. Gimme something to do with these tags...</p>
+        </span>
+        <span class="img">
+          <img src="slide2.png" alt="Another">
+        </span>
+      </div>
+      <div class="slide">
+        <span class="desc">
+          <h3>Another check 3</h3>
+          <p>This is a test text. Gimme something to do with these tags...</p>
+        </span>
+        <span class="img">
+          <img src="slide2.png" alt="Another">
+        </span>
+      </div>
+      <div class="slide">
+        <span class="desc">
+          <h3>Another check of big</h3>
+          <p>Can I get some help here?</p>
+        </span>
+        <span class="img">
+          <img src="slide1.png" alt="Another">
+        </span>
+      </div>
 
-  <div class="slide">
-    <span class="desc">
-      <h3>Another check 3</h3>
-      <p>This is a test text. Gimme something to do with these tags...</p>
-    </span>
-    <span class="img">
-      <img src="slide2.png" alt="Another">
-    </span>
+    </div>
   </div>
-
   <div id="paginate"></div>
 </div>
 
 <script>
   $(function() {
-    $('#slide-preview').siteSlider();
+    $('#site-preview').siteSlider();
   });
 </script>
 
