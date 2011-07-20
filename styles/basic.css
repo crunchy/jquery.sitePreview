@@ -1,6 +1,14 @@
 #site-preview {
   width: 800px;
   height: 200px;
+  
+  border: 1px solid #ddd;
+  padding: 8px;
+  
+  -webkit-border-radius: 10px;  -moz-border-radius: 10px;  border-radius: 10px;
+  
+  box-shadow:inset 0 0 10px #ddd;
+  -moz-box-shadow:inset 0 0 10px #ddd;
 }
 
 #site-preview h1,
@@ -13,9 +21,16 @@
   display: inline-block;
   width: 310px;
   overflow: hidden;
-  height: 200px;
+  height: 140px;
   padding: 20px;
   float: left;
+  
+  margin: 10px;
+  
+  -webkit-border-radius: 10px;  -moz-border-radius: 10px;  border-radius: 10px;
+  
+  box-shadow:inset 0 0 10px #ddd;
+  -moz-box-shadow:inset 0 0 10px #ddd;
 }
 
 #site-preview #slide-viewer {
@@ -44,12 +59,12 @@
 }
 
 #site-preview .nav {
-  width: 40px;
-  height: 75px;
+  width: 24px;
+  height: 55px;
   text-indent: -10000;
-  opacity: 0.2;
-  margin-top: 60px;
-  
+  opacity: 0.3;
+  margin-top: 75px;
+    
   -webkit-transition: opacity 0.2s ease-in;  
   -moz-transition: opacity 0.2s ease-in;  
   -o-transition: opacity 0.2s ease-in;  
@@ -70,14 +85,20 @@
   background-image: url(../images/right.png);
 }
 
+#site-preview #paginate {
+  float: right; 
+  margin-right: 50px;
+  margin-top: -5px;
+}
+
 #site-preview #paginate a.pager {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   display: inline-block;
-  margin-left: 2px;
+  margin-left: 7px;
 
   text-indent: -10000; 
-  background: url(../images/dots.png) no-repeat 0 -12px; 
+  background: url(../images/dots.png) no-repeat 0 -8px; 
 }
 
 #site-preview #paginate a.pager.active { 

@@ -17,7 +17,7 @@
 
       _init(options);
 
-      var slideWidth = $($('.slide')[0]).innerWidth();
+      var slideWidth = $($('.slide')[0]).innerWidth() + 20;
       var numberOfSlides = $slides.length;
 
       $('#slides').css('width', slideWidth * numberOfSlides);
@@ -39,7 +39,7 @@
   };
 
   function _handleNav(e) {
-    var slideWidth = $($('.slide')[0]).innerWidth()
+    var slideWidth = $($('.slide')[0]).innerWidth() + 20
       , pos = parseInt($('#slides').css('margin-left'))
       , max = $('#slides').width() - $('#slide-viewer').width()
       , forward = $(this).attr('id') == "next"
