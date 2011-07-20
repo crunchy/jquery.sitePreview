@@ -14,10 +14,17 @@
 <h1>Example 1</h1>
 
 <div id="site-preview">
+  <!-- nav buttons -->
   <a href="#prev" id="prev" class="nav">Prev</a>
   <a href="#next" id="next" class="nav">Next</a>
+
+  <!-- slide-viewer is the portal we see the slides in, two slides wide -->
   <div id="slide-viewer">
+
+    <!-- slides holds all the slides and is what is scrolled left/right -->
     <div id="slides">
+
+      <!-- the actual slide entity. can contain whatever you like -->
       <div class="slide">
         <span class="desc">
           <h3>Testing header</h3>
@@ -54,15 +61,27 @@
           <img src="slide2.png" alt="Another">
         </span>
       </div>
+      <div class="slide">
+        <span class="desc">
+          <h3>Another check of big</h3>
+          <p>Can I get some help here?</p>
+        </span>
+        <span class="img">
+          <img src="slide2.png" alt="Another">
+        </span>
+      </div>
 
     </div>
   </div>
+
+  <!-- Paginate is filled with the page dots via javascript -->
   <div id="paginate"></div>
 </div>
 
 <script>
   $(function() {
-    $('#site-preview').siteSlider();
+    // this sets up the slide viewer. you can pass multiple selectors here. will act on all elements returned.
+    $('#site-preview').siteSlider({width: 800, height: 250});
   });
 </script>
 

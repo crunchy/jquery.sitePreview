@@ -1,12 +1,11 @@
 #site-preview {
-  width: 800px;
-  height: 200px;
-  
   border: 1px solid #ddd;
   padding: 8px;
-  
-  -webkit-border-radius: 10px;  -moz-border-radius: 10px;  border-radius: 10px;
-  
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
   box-shadow:inset 0 0 10px #ddd;
   -moz-box-shadow:inset 0 0 10px #ddd;
 }
@@ -14,39 +13,38 @@
 #site-preview h1,
 #site-preview h3,
 #site-preview p {
-  margin: 0; 
+  margin: 0;
 }
 
 #site-preview .slide {
   display: inline-block;
-  width: 310px;
   overflow: hidden;
-  height: 140px;
   padding: 20px;
   float: left;
-  
+
   margin: 10px;
-  
-  -webkit-border-radius: 10px;  -moz-border-radius: 10px;  border-radius: 10px;
-  
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
   box-shadow:inset 0 0 10px #ddd;
   -moz-box-shadow:inset 0 0 10px #ddd;
 }
 
 #site-preview #slide-viewer {
-  height: 200px;
   position: relative;
   overflow: hidden;
 }
 
 .slide .desc {
-  display: inline-block; 
+  display: inline-block;
   width: 50%;
   vertical-align: top;
 }
 
 .slide .desc p {
-  border-top: 1px solid #ddd; 
+  border-top: 1px solid #ddd;
 }
 
 .slide .img {
@@ -54,7 +52,6 @@
   overflow: hidden;
 }
 .slide img {
-  height: 150px;
   position: absolute;
 }
 
@@ -63,11 +60,10 @@
   height: 55px;
   text-indent: -10000;
   opacity: 0.3;
-  margin-top: 75px;
-    
-  -webkit-transition: opacity 0.2s ease-in;  
-  -moz-transition: opacity 0.2s ease-in;  
-  -o-transition: opacity 0.2s ease-in;  
+
+  -webkit-transition: opacity 0.2s ease-in;
+  -moz-transition: opacity 0.2s ease-in;
+  -o-transition: opacity 0.2s ease-in;
   transition: opacity 0.2s ease-in;
 }
 
@@ -86,7 +82,7 @@
 }
 
 #site-preview #paginate {
-  float: right; 
+  float: right;
   margin-right: 50px;
   margin-top: -5px;
 }
@@ -97,10 +93,10 @@
   display: inline-block;
   margin-left: 7px;
 
-  text-indent: -10000; 
-  background: url(../images/dots.png) no-repeat 0 -8px; 
+  text-indent: -10000;
+  background: url(../images/dots.png) no-repeat 0 -8px;
 }
 
-#site-preview #paginate a.pager.active { 
-  background-position: 0 0; 
+#site-preview #paginate a.pager.active {
+  background-position: 0 0;
 }

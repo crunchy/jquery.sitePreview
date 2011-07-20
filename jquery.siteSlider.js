@@ -3,7 +3,7 @@
     var options = _.extend({}, {
       expandImage: true,
       width: 800,
-      height: 350,
+      height: 200,
       auto: true,
       slideTag: '.slide',
       paginateTag: '#paginate'
@@ -11,31 +11,43 @@
 
     options.el = this;
 
-    $slides = $(options.slideTag);
-
     return this.each(function() {
-
       _init(options);
-
-      var slideWidth = $($('.slide')[0]).innerWidth() + 20;
-      var numberOfSlides = $slides.length;
-
-      $('#slides').css('width', slideWidth * numberOfSlides);
-      $('#slide-viewer').css('width', (slideWidth * 2));
-
     });
   };
 
   function _init(options) {
-    // setup the paginator
+    var $slides = $(options.slideTag);
+
+    // setup the paginator //
     for(var i=1; i < $slides.length; i++) {
       $(options.paginateTag).append("<a href='#' data-id="+i+" class='pager'>.</a>");
     }
     $('.pager').first().addClass('active');
 
+    // bind actions //
     $slides.find('img').bind('mouseover', options, _handleHovers);
     $slides.find('img').bind('mouseout', options, _handleOut);
     $('.nav').bind("click", options, _handleNav);
+
+    options.el.width(options.width).height(options.height);
+    var $viewer = $('#slide-viewer').css('width', options.width-60).height(options.height);
+
+    // setup sizing //
+    var slideWidth = $viewer.width()/2 - 60;
+    var numberOfSlides = $slides.length;
+
+    $('#slides').css('width', (slideWidth+60) * numberOfSlides);
+
+    // slides
+    $(options.slideTag).width(slideWidth).height(options.height-60);
+    $('img', options.slideTag).height(options.height-60);
+
+
+    // position nav
+    var navPos = (options.height / 2) - ($('.nav').innerHeight() / 2);
+    $('.nav').css('margin-top', navPos);
+
   };
 
   function _handleNav(e) {
@@ -60,7 +72,7 @@
 
   function _handleHovers(e) {
     $(this).animate({
-      'left': $(this).parents('.slide').position().left - $(this).parent().position().left + 20
+      'left': $(this).parents(e.data.slideTag).position().left - $(this).parent().position().left + 30
     });
   };
 
