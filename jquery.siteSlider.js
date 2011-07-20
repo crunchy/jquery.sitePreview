@@ -34,9 +34,7 @@
 
     $('.nav').bind("click", options, _handleNav);
     if(options.auto == true) {
-      setInterval(function() {
-        _handleNav(options, true);
-      }, options.autoInterval * 1000);
+      startAutoScroll(options);
     }
 
     options.el.width(options.width).height(options.height);
@@ -56,7 +54,16 @@
     // position nav
     var navPos = (options.height / 2) - ($('.nav').innerHeight() / 2);
     $('.nav').css('margin-top', navPos);
+  };
 
+  function startAutoScroll(opts) {
+    opts.runningInterval = interval = setInterval(function() {
+        _handleNav(opts, true);
+      }, opts.autoInterval * 1000);
+  };
+
+  function stopAutoScroll(opts) {
+    clearInterval(opts.runningInterval);
   };
 
   function _handleNav(e, auto) {
@@ -66,6 +73,11 @@
       , forward = ($(this).attr('id') == "next" || auto)
       , $active = $('.pager.active')
       , id = $active.data('id');
+
+    if(!auto) {
+      stopAutoScroll(e.data);
+      startAutoScroll(e.data);
+    }
 
     if ( pos == 0 && !forward ) {
       return;
@@ -80,12 +92,14 @@
   };
 
   function _handleHovers(e) {
+    stopAutoScroll(e.data);
     $(this).animate({
       'left': $(this).parents(e.data.slideTag).position().left - $(this).parent().position().left + 30
     });
   };
 
   function _handleOut(e) {
+    startAutoScroll(e.data);
     $(this).animate({
       'left': 0
     });
