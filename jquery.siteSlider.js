@@ -21,8 +21,9 @@
     var $slides = $(options.slideTag);
 
     // setup the paginator //
-    for(var i=1; i < $slides.length; i++) {
+    for(var i=0; i < $slides.length; i++) {
       $($slides[i]).data('id', i);
+      if(i == 0) { continue; }
       $(options.paginateTag).append("<a href='#' data-id="+i+" class='pager'>.</a>");
     }
     $('.pager').first().addClass('active');
