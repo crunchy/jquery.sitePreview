@@ -5,6 +5,7 @@
       width: 800,
       height: 200,
       auto: true,
+      autoInterval: 5,
       slideTag: '.slide',
       paginateTag: '#paginate'
     }, settings);
@@ -26,9 +27,17 @@
     $('.pager').first().addClass('active');
 
     // bind actions //
-    $slides.find('img').bind('mouseover', options, _handleHovers);
-    $slides.find('img').bind('mouseout', options, _handleOut);
+    if(options.expandImage == true) {
+      $slides.find('img').bind('mouseover', options, _handleHovers);
+      $slides.find('img').bind('mouseout', options, _handleOut);
+    }
+
     $('.nav').bind("click", options, _handleNav);
+    if(options.auto == true) {
+      setInterval(function() {
+        _handleNav(options, true);
+      }, options.autoInterval * 1000);
+    }
 
     options.el.width(options.width).height(options.height);
     var $viewer = $('#slide-viewer').css('width', options.width-60).height(options.height);
@@ -50,17 +59,17 @@
 
   };
 
-  function _handleNav(e) {
+  function _handleNav(e, auto) {
     var slideWidth = $($('.slide')[0]).innerWidth() + 20
       , pos = parseInt($('#slides').css('margin-left'))
       , max = $('#slides').width() - $('#slide-viewer').width()
-      , forward = $(this).attr('id') == "next"
+      , forward = ($(this).attr('id') == "next" || auto)
       , $active = $('.pager.active')
       , id = $active.data('id');
 
     if ( pos == 0 && !forward ) {
       return;
-    } else if ( pos <= -max && forward ) {
+    } else if ( pos <= -max && (forward || auto) ) {
       $('#slides').animate({ 'margin-left': 0 });
       $active.removeClass('active');
       $('.pager').first().addClass('active');
