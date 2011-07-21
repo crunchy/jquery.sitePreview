@@ -60,13 +60,8 @@
   function startAutoScroll(opts) {
     if(!opts.auto) { return; }
     opts.runningInterval = setInterval(function() {
-<<<<<<< HEAD
       _handleNav({data: opts}, true);
     }, opts.autoInterval * 1000);
-=======
-        _handleNav({data: opts}, true);
-      }, opts.autoInterval * 1000);
->>>>>>> more cleanup
   }
 
   function stopAutoScroll(opts) {
@@ -89,14 +84,9 @@
       startAutoScroll(e.data);
     }
 
-<<<<<<< HEAD
     if( pos == 0 && !forward ) {
       // Don't do anything.
     } else if( pos > 0 || (pos <= -max && (forward || auto)) ) {
-=======
-    if( pos == 0 && !forward ) {}
-    else if( pos > 0 || (pos <= -max && (forward || auto)) ) {
->>>>>>> more cleanup
       e.data.prevent = true;
 
       slideTo(0, e.data);
