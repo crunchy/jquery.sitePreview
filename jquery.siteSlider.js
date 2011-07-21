@@ -29,14 +29,14 @@
     $('.pager').first().addClass('active');
 
     // bind actions //
-    if(options.expandImage == true) {
+    if(options.expandImage) {
       $slides.find('img').bind('mouseover', options, _handleHovers);
       $slides.find('img').bind('mouseout', options, _handleOut);
     }
 
     $('.nav').bind("click", options, _handleNav);
     $('.pager').bind("click", options, _handlePage);
-    if(options.auto == true) {
+    if(options.auto) {
       startAutoScroll(options);
     }
 
@@ -57,17 +57,17 @@
     // position nav
     var navPos = (options.height / 2) - ($('.nav').innerHeight() / 2);
     $('.nav').css('margin-top', navPos);
-  };
+  }
 
   function startAutoScroll(opts) {
-    opts.runningInterval = interval = setInterval(function() {
+    opts.runningInterval = setInterval(function() {
         _handleNav({data: opts}, true);
-      }, opts.autoInterval * 1000);
-  };
+    }, opts.autoInterval * 1000);
+  }
 
   function stopAutoScroll(opts) {
     clearInterval(opts.runningInterval);
-  };
+  }
 
   function _handleNav(e, auto) {
     if(e.data.prevent) { return; }
@@ -85,7 +85,7 @@
     }
 
     if( pos == 0 && !forward ) {
-      return;
+      // Don't do anything.
     } else if( pos > 0 || (pos <= -max && (forward || auto)) ) {
       e.data.prevent = true;
 
@@ -98,7 +98,7 @@
       slideTo(forward ? pos-slideWidth : pos+slideWidth, e.data);
       $active.removeClass('active').siblings('[data-id="'+ (forward ? id+1 : id-1) +'"]').addClass('active');
     }
-  };
+  }
 
   function _handlePage(e) {
     if(e.data.prevent) { return; }
@@ -113,21 +113,21 @@
     e.data.prevent = true;
 
     slideTo(pos + ((curr - to) * slideWidth), e.data);
-  };
+  }
 
   function _handleHovers(e) {
     stopAutoScroll(e.data);
     $(this).animate({
       'left': $(this).parents(e.data.slideTag).position().left - $(this).parent().position().left + 30
     });
-  };
+  }
 
   function _handleOut(e) {
     startAutoScroll(e.data);
     $(this).animate({
       'left': 0
     });
-  };
+  }
 
   function slideTo(pos, opts) {
     $('#slides').animate({'margin-left': pos}, function() { opts.prevent = false });
