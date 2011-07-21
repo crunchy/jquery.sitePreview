@@ -1,6 +1,6 @@
 (function( $ ){
   $.fn.siteSlider = function( settings ) {
-    var options = _.extend({}, {
+    var options = $.extend({}, {
       expandImage: true,
       width: 800,
       height: 200,
