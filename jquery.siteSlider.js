@@ -15,7 +15,7 @@
     return this.each(function() {
       _init(options);
     });
-  };
+  }
 
   function _init(options) {
     var $slides = $(options.slideTag);
@@ -61,7 +61,7 @@
 
   function startAutoScroll(opts) {
     opts.runningInterval = setInterval(function() {
-        _handleNav({data: opts}, true);
+      _handleNav({data: opts}, true);
     }, opts.autoInterval * 1000);
   }
 
@@ -95,8 +95,8 @@
     } else {
       e.data.prevent = true;
 
-      slideTo(forward ? pos-slideWidth : pos+slideWidth, e.data);
       $active.removeClass('active').siblings('[data-id="'+ (forward ? id+1 : id-1) +'"]').addClass('active');
+      slideTo(forward ? pos-slideWidth : pos+slideWidth, e.data);
     }
   }
 
