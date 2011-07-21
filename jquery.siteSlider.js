@@ -36,9 +36,7 @@
 
     $('.nav').bind("click", options, _handleNav);
     $('.pager').bind("click", options, _handlePage);
-    if(options.auto) {
-      startAutoScroll(options);
-    }
+    startAutoScroll(options);
 
     options.el.width(options.width).height(options.height);
     var $viewer = $('#slide-viewer').css('width', options.width-60).height(options.height);
@@ -60,6 +58,7 @@
   }
 
   function startAutoScroll(opts) {
+    if(!opts.auto) { return; }
     opts.runningInterval = setInterval(function() {
 <<<<<<< HEAD
       _handleNav({data: opts}, true);
@@ -71,6 +70,7 @@
   }
 
   function stopAutoScroll(opts) {
+    if(!opts.auto) { return; }
     clearInterval(opts.runningInterval);
   }
 
