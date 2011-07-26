@@ -117,16 +117,14 @@
 
   function _handleHovers(e) {
     stopAutoScroll(e.data);
-    $(this).animate({
+    $(this).stop().animate({
       'left': $(this).parents(e.data.slideTag).position().left - $(this).parent().position().left + 30
     });
   }
 
   function _handleOut(e) {
     startAutoScroll(e.data);
-    $(this).animate({
-      'left': 0
-    });
+    $(this).stop().animate({ 'left': 0 });
   }
 
   function slideTo(pos, opts) {
