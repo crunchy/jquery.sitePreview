@@ -70,6 +70,7 @@
   }
 
   function _handleNav(e, auto) {
+    e.preventDefault();
     if(e.data.prevent) { return; }
 
     var slideWidth = $($('.slide')[0]).innerWidth() + 20
@@ -101,6 +102,7 @@
   }
 
   function _handlePage(e) {
+    e.preventDefault();
     if(e.data.prevent) { return; }
 
     var slideWidth = $($('.slide')[0]).innerWidth() + 20
