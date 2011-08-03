@@ -70,7 +70,8 @@
   }
 
   function _init(options) {
-    var $slides = $(options.slideTag);
+    var $slides = $(options.slideTag)
+      , PADDING = 60;
 
     // setup the paginator //
     for(var i=0; i < $slides.length; i++) {
@@ -92,16 +93,16 @@
 
     // setup sizing //
     options.el.width(options.width).height(options.height);
-    var $viewer = $('#slide-viewer').css('width', options.width-60).height(options.height);
+    var $viewer = $('#slide-viewer').css('width', options.width-PADDING).height(options.height);
 
-    var slideWidth = $viewer.width()/2 - 60;
+    var slideWidth = $viewer.width()/2 - PADDING;
     var numberOfSlides = $slides.length;
 
-    $('#slides').css('width', (slideWidth+60) * numberOfSlides);
+    $('#slides').css('width', (slideWidth+PADDING) * numberOfSlides);
 
     // slides sizing
-    $(options.slideTag).width(slideWidth).height(options.height-60);
-    $('img', options.slideTag).height(options.height-60);
+    $(options.slideTag).width(slideWidth).height(options.height - PADDING);
+    $('img', options.slideTag).height(options.height-PADDING);
 
 
     // position nav
@@ -186,4 +187,6 @@
   }
 
 })( jQuery );
+
+
 
