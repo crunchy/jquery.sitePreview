@@ -173,7 +173,7 @@
   function _handleHovers(e) {
     stopAutoScroll(e.data);
     $(this).stop().animate({
-      'left': $(this).parents(e.data.slideTag).position().left - $(this).parent().position().left + 30
+      'left': -$(this).parent().position().left + 30
     });
   }
 
